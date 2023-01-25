@@ -1,0 +1,9 @@
+#form-SPT {
+    flex-direction: column-reverse;
+}
+
+@media (min-width: 576px) {
+    #form-SPT {
+        flex-direction: column;
+    }
+}
