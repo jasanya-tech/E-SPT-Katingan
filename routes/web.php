@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = [
+        'title' => 'Landing Page'
+    ];
+    return view('welcome', $data);
 });
 
 Route::get('/admin', [Dashboard::class, 'index']);

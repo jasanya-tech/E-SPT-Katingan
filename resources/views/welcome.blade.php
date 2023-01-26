@@ -1,5 +1,5 @@
-<x-layouts.guest.index>
-    <x-layouts.guest.navbar title="Form Pendaftaran SPT Katingan" />
+<x-layouts.guest.index title="{{ $title }}">
+    <x-layouts.guest.navbar title="{{ $title }}" />
     <section class="container mt-5">
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col mb-3">
