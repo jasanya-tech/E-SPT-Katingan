@@ -24,9 +24,7 @@
                     </div>
                 </div>
             @empty
-                <div class="text-center">
-                    <h3>Belum Memiliki SPT Registrasi</h3>
-                </div>
+                <x-RekapPendaftar></x-RekapPendaftar>
             @endforelse
             <form action="{{ '/guest/registrasi' }}" class="card my-3" method="POST">
                 @csrf

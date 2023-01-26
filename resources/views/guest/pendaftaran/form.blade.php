@@ -10,7 +10,7 @@
             @endif
         </div>
         <div class="container d-flex my-3" id="form-SPT">
-            <x-rekappendaftar></x-rekappendaftar>
+            <x-RekapPendaftar></x-RekapPendaftar>
             <form action="{{ '/guest/pendaftaran' }}" class="card my-3" method="POST">
                 @csrf
                 <div class="card-body px-5 my-4">
