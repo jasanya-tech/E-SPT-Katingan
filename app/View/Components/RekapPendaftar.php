@@ -26,7 +26,7 @@ class RekapPendaftar extends Component
      */
     public function render()
     {
-        $countDiproses = Registrasi::where('status', 'diproses')->get()->count() > 0 ? Pendaftaran::get()->count() : "tidak ada";
+        $countDiproses = Registrasi::where('status', 'diproses')->get()->count() > 0 ? Registrasi::where('status', 'diproses')->get()->count() : "tidak ada";
         $countRegistrasi = Registrasi::get()->count() > 0 ? Registrasi::get()->count() : "tidak ada";
         $countPengambilan = Pengambilan::get()->count() > 0 ? Pengambilan::get()->count() : "tidak ada";
         $data = [

@@ -32,10 +32,3 @@ Route::resource('/guest/pengambilan', GuestPengambilan::class);
 
 Route::get('/guest/check-registrasi', [GuestRegistrasi::class, 'check']);
 Route::get('/guest/form-check-registrasi', [GuestRegistrasi::class, 'formCheck']);
-
-Route::get('/test', function () {
-    $data = [
-        'title' => 'pengambilan berhasil'
-    ];
-    return view('guest.registrasi.check', $data);
-});
