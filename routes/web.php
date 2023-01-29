@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\SPT;
 use App\Http\Controllers\admin\Dashboard;
 use App\Http\Controllers\guest\PendaftaranController as GuestPendaftaran;
 use App\Http\Controllers\guest\RegistrasiController as GuestRegistrasi;
@@ -32,3 +33,7 @@ Route::resource('/guest/pengambilan', GuestPengambilan::class);
 
 Route::get('/guest/check-registrasi', [GuestRegistrasi::class, 'check']);
 Route::get('/guest/form-check-registrasi', [GuestRegistrasi::class, 'formCheck']);
+
+Route::get('/test', function () {
+    return SPT::generateNoRegis();
+});

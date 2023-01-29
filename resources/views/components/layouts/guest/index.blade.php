@@ -9,7 +9,6 @@
 
     <!-- Favicons -->
     <link href="{{ asset('storage/images/logo-katingan.png') }}" rel="icon">
-    <link href="{{ asset('template') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">

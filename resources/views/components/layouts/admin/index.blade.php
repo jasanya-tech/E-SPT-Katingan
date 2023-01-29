@@ -11,8 +11,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('template') }}/img/favicon.png" rel="icon">
-    <link href="{{ asset('template') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('storage/images/logo-katingan.png') }}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
