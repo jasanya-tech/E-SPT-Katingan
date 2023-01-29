@@ -2,16 +2,16 @@
     <div class="col my-3">
         <div class="card text-light bg-primary">
             <div class="card-body text-center">
-                <h5 class="card-title">Pendaftaran</h5>
-                <h4>123</h4>
+                <h5 class="card-title">Registrasi</h5>
+                <h4>{{ $countRegistrasi }}</h4>
             </div>
         </div>
     </div>
     <div class="col my-3">
         <div class="card text-light bg-warning">
             <div class="card-body text-center">
-                <h5 class="card-title">Registrasi</h5>
-                <h4>123</h4>
+                <h5 class="card-title">Diproses</h5>
+                <h4>{{ $countDiproses }}</h4>
 
             </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="card text-light bg-success">
             <div class="card-body text-center">
                 <h5 class="card-title">Pengambilan</h5>
-                <h4>123</h4>
+                <h4>{{ $countPengambilan }}</h4>
             </div>
         </div>
     </div>

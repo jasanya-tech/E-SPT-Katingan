@@ -30,6 +30,8 @@
                 @csrf
                 <div class="card-body px-5 my-4">
                     <div class="row row-cols-1 row-cols-md-2">
+                        <input type="text" class="d-none" name="jumlah_SPT"
+                            value="{{ old('jumlah_SPT', $jumlah_SPT) }}">
                         <x-input name="no_registrasi" type="text" required value="594.4/555/XII/KT/PEM" readonly />
                         <x-input name="nama_pemilik_SPT" type="text" required value="{{ $nama_pemilik }}">
                         </x-input>

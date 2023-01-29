@@ -23,7 +23,7 @@
 
     {{-- Load My Script CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/css/guest.css') }}">
-
+    @stack('css')
     @stack('scripts')
 
 </head>

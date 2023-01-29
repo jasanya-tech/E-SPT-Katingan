@@ -74,6 +74,7 @@ class RegistrasiController extends Controller
 
         $data = [
             'title' => 'Registrasi Berhasil',
+            'nama_pemilik_SPT' => $request->nama_pemilik_SPT
         ];
         return view('guest.registrasi.success', $data);
     }
@@ -121,5 +122,27 @@ class RegistrasiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function check(Request  $request)
+    {
+        $namaPemilik = $request->nama_pemilik_SPT;
+        $registrasi = Registrasi::where('nama_pemilik_SPT', $namaPemilik)->first();
+        if (!$registrasi) {
+            return redirect()->back()->with('error', 'nama pemilik belum melakukan registrasi')->withInput($request->all());
+        }
+        $data = [
+            'title' => "Check Status Registrasi SPT $namaPemilik",
+            'registrasi' => $registrasi
+        ];
+        return view('guest.registrasi.check', $data);
+    }
+
+    public function formCheck()
+    {
+        $data = [
+            'title' => "Form Check Status Registrasi SPT",
+        ];
+        return view('guest.registrasi.form-check', $data);
     }
 }

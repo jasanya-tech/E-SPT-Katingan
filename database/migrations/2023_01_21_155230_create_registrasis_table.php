@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('registrasi', function (Blueprint $table) {
             $table->string('no_registrasi', 45)->primary();
             $table->string('nama_pemilik_SPT');
+            $table->integer('jumlah_SPT');
             $table->float("luas_tanah");
             $table->string('alamat');
             $table->string("perbatasan_tanah_utara");

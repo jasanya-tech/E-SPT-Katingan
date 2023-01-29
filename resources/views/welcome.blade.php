@@ -4,7 +4,7 @@
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col mb-3">
                 <div class="card bg-primary text-light p-3 m-3" style="cursor: pointer"
-                    onclick="window.location.href = '/guest/pendaftaran/create'"">
+                    onclick="window.location.href = '/guest/pendaftaran/create'">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center">
                         <img src="{{ asset('assets/images/UI/form-pendaftaran.png') }}" style="width: 50%">
                         <h5 class="card-title">Form Pendaftaran SPT</h5>
@@ -15,7 +15,8 @@
                 </div>
             </div>
             <div class="col mb-3">
-                <div class="card bg-info text-light p-3 m-3" style="cursor: pointer">
+                <div class="card bg-info text-light p-3 m-3" style="cursor: pointer"
+                    onclick="window.location.href = '/guest/form-check-registrasi'">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center">
                         <img src="{{ asset('assets/images/UI/find-registrasi.png') }}" style="width: 50%">
                         <h5 class="card-title">Cek Status Registrasi SPT</h5>

@@ -2,6 +2,9 @@
 
 namespace App\View\Components;
 
+use App\Models\Pendaftaran;
+use App\Models\Registrasi;
+use App\Models\Pengambilan;
 use Illuminate\View\Component;
 
 class RekapPendaftar extends Component
@@ -23,6 +26,14 @@ class RekapPendaftar extends Component
      */
     public function render()
     {
-        return view('components.rekap-pendaftar');
+        $countDiproses = Registrasi::where('status', 'diproses')->get()->count() > 0 ? Pendaftaran::get()->count() : "tidak ada";
+        $countRegistrasi = Registrasi::get()->count() > 0 ? Registrasi::get()->count() : "tidak ada";
+        $countPengambilan = Pengambilan::get()->count() > 0 ? Pengambilan::get()->count() : "tidak ada";
+        $data = [
+            'countRegistrasi' => $countRegistrasi,
+            'countDiproses' => $countDiproses,
+            'countPengambilan' => $countPengambilan
+        ];
+        return view('components.rekap-pendaftar', $data);
     }
 }

@@ -6,7 +6,8 @@
                 <img src="{{ asset('assets/images/UI/berhasil.gif') }}" style="width: 20%">
                 <h3 class="text-success">Registrasi Berhasil</h3>
                 <p class="text-center">silahkan check status pembuatan secara berkala</p>
-                <a href="#" class="btn btn-primary">Disini</a>
+                <a href="/guest/check-registrasi?nama_pemilik_SPT={{ $nama_pemilik_SPT }}"
+                    class="btn btn-primary">Disini</a>
             </div>
         </div>
     </div>
