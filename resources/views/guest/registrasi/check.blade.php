@@ -46,7 +46,9 @@
     @endpush
     <script>
         $(document).ready(function() {
-            $('#example').DataTable();
+            $('#example').DataTable({
+                scrollX: true,
+            });
         });
     </script>
 </x-layouts.guest.index>
