@@ -62,7 +62,7 @@
                                                 </div>
                                                 <style>
                                                     #sig {
-                                                        border: 4px solid #444;
+                                                        border: 2px solid #444;
                                                         border-radius: 15px;
                                                         background-color: #fafafa;
                                                     }
