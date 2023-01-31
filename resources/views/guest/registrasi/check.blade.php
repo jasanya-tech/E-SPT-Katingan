@@ -68,6 +68,7 @@
                                                     }
                                                 </style>
                                                 <div class="mb-3 d-flex flex-column align-items-center">
+                                                    <label class="form-label">Tanda Tangan</label>
                                                     <canvas id="sig"></canvas>
                                                     <input type="button" class="btn btn-warning mt-2" value="Reset"
                                                         id="resetSign" />
@@ -99,7 +100,7 @@
                 resetButton: $("#resetSign"),
                 lineWidth: 2,
                 height: 200,
-                width: 400,
+                width: 300,
             });
         });
     </script>
