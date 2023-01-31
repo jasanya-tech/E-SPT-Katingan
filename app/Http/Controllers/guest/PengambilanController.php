@@ -4,6 +4,7 @@ namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pengambilan;
+use App\Models\Registrasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,6 +54,13 @@ class PengambilanController extends Controller
         $this->validate($request, $rules, $message);
 
         DB::beginTransaction();
+        $registrasi = Registrasi::where('no_registrasi', $request->no_registrasi)->first();
+        $registrasi->status = 'selesai';
+        $registrasi->save();
+        if (!$registrasi) {
+            DB::rollBack();
+            return redirect()->back()->withInput($request->all())->with('error', 'pengambilan gagal mungkin ada kesalahan');
+        }
         $pengambilan = new Pengambilan();
         $pengambilan->nama_pemilik = $request->nama_pemilik;
         $pengambilan->jumlah_SPT = $request->jumlah_SPT;
@@ -62,15 +70,16 @@ class PengambilanController extends Controller
             return redirect()->back()->withInput($request->all())->with('error', 'pengambilan gagal mungkin ada kesalahan');
         }
         // ternary check folder TTD 
-        try {
-            is_dir('storage/images/TTD') ? '' : mkdir('storage/images/TTD');
-            $fileTTD = fopen("storage/images/TTD/" . time() . ".svg", "w") or die("Unable to open file!");
-            fwrite($fileTTD, $request->TTD);
-            fclose($fileTTD);
-        } catch (\Throwable $th) {
-            return redirect()->back()->withInput($request->all())->with('error', $th->getMessage());
-        }
-        return view('guest.pengambilan-berhasil');
+        // try {
+        //     is_dir('storage/images/TTD') ? '' : mkdir('storage/images/TTD');
+        //     $fileTTD = fopen("storage/images/TTD/" . time() . ".svg", "w") or die("Unable to open file!");
+        //     fwrite($fileTTD, $request->TTD);
+        //     fclose($fileTTD);
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->withInput($request->all())->with('error', $th->getMessage());
+        // }
+        DB::commit();
+        return redirect()->back()->with('success', 'berhasil mengambil SPT');
     }
 
     /**

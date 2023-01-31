@@ -1,6 +1,6 @@
 @props(['label' => null, 'name' => null, 'value' => null, 'type' => 'text', 'id' => null, 'options' => []])
 
-@if (array_search(strtolower($type), ['text', 'number', 'date']) !== false)
+@if (array_search(strtolower($type), ['text', 'number', 'date', 'file']) !== false)
     <div class="mb-3">
         <label for="{{ $id ? $id : $name }}"
             class="form-label text-capitalize">{{ $label ? $label : str_replace('_', ' ', $name) }}</label>

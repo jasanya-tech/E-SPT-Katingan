@@ -3,6 +3,15 @@
     <x-layouts.admin.sidebar></x-layouts.admin.sidebar>
 
     <main id="main" class="main">
+        @if (session('error'))
+            <x-alert type="danger" :message="session('error')" class="mb-4" />
+        @endif
+        @if (session('success'))
+            <x-alert type="success" :message="session('success')" class="mb-4" />
+        @endif
+        @error('document_SPT')
+            <x-alert type="danger" :message="'Gagal ' . $message"></x-alert>
+        @enderror
         <div class="pagetitle">
             <h1>Dashboard</h1>
             <nav>
@@ -79,6 +88,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                $no = 0;
+                                            @endphp
                                             @foreach ($registrasi as $reg)
                                                 <tr>
                                                     <th scope="row"><a href="#">{{ $reg->no_registrasi }}</a>
@@ -95,11 +107,45 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="" class="btn btn-primary btn-sm"
-                                                            onclick="return confirm('SPT ini yakin sudah selesai?')">selesai
-                                                            proses</a>
+                                                        <button type="button" class="btn btn-primary btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modal{{ $no }}">selesai
+                                                            proses</button>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="modal{{ $no }}"
+                                                            tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <form class="modal-content" action="/admin/confirm-reg"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    <div class="modal-header">
+                                                                        <h1 class="modal-title fs-5"
+                                                                            id="exampleModalLabel">Upload Berkas SPT
+                                                                        </h1>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        @csrf
+                                                                        <input type="text" class="d-none"
+                                                                            value="{{ $reg->no_registrasi }}"
+                                                                            name="no_registrasi">
+                                                                        <x-input name="document_SPT" type="file"
+                                                                            accept="application/pdf" />
+                                                                    </div>
+                                                                    <div class="modal-footer justify-content-center">
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Simpan</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
+                                                @php
+                                                    $no++;
+                                                @endphp
                                             @endforeach
                                         </tbody>
                                     </table>

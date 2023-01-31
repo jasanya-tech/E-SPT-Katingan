@@ -2,6 +2,7 @@
 
 use App\Helpers\SPT;
 use App\Http\Controllers\admin\Dashboard;
+use App\Http\Controllers\admin\RegistrasiController as AdminRegistrasi;
 use App\Http\Controllers\guest\PendaftaranController as GuestPendaftaran;
 use App\Http\Controllers\guest\RegistrasiController as GuestRegistrasi;
 use App\Http\Controllers\guest\PengambilanController as GuestPengambilan;
@@ -25,7 +26,12 @@ Route::get('/', function () {
     return view('welcome', $data);
 });
 
-Route::get('/admin', [Dashboard::class, 'index']);
+Route::get('/admin/dashboard', [Dashboard::class, 'index']);
+Route::POST('/admin/confirm-reg', [Dashboard::class, 'confirmRegistrasi']);
+route::group(['prefix' => 'admin/registrasi'], function () {
+
+    Route::get('/{status}', [AdminRegistrasi::class, 'index']);
+});
 
 Route::resource('/guest/pendaftaran', GuestPendaftaran::class);
 Route::resource('/guest/registrasi', GuestRegistrasi::class);

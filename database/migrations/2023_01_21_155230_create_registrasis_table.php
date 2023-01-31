@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('registrasi', function (Blueprint $table) {
-            $table->string('no_registrasi', 45)->primary();
+            $table->id();
+            $table->string('no_registrasi', 45);
             $table->string('nama_pemilik_SPT');
             $table->integer('jumlah_SPT');
             $table->float("luas_tanah");
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string("perbatasan_tanah_selatan");
             $table->string("perbatasan_tanah_barat");
             $table->enum('status', ['diproses', 'menunggu', 'selesai'])->default('diproses');
+            $table->string("document_SPT")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

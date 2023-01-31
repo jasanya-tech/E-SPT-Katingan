@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_pemilik');
             $table->string('jumlah_SPT');
-            $table->string('TTD');
+            $table->string('TTD')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
