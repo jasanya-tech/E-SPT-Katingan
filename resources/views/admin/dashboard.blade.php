@@ -76,7 +76,6 @@
                             <div class="card recent-sales overflow-auto">
                                 <div class="card-body">
                                     <h5 class="card-title">Data Registrasi<span> | SPT</span></h5>
-
                                     <table class="table table-borderless datatable">
                                         <thead>
                                             <tr>

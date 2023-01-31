@@ -129,7 +129,7 @@ class RegistrasiController extends Controller
         $namaPemilik = $request->nama_pemilik_SPT;
         $registrasi = Registrasi::where('nama_pemilik_SPT', $namaPemilik)->first();
         if (!$registrasi) {
-            return redirect()->back()->with('error', 'nama pemilik belum melakukan registrasi')->withInput($request->all());
+            return redirect('/guest/form-check-registrasi')->with('error', 'nama pemilik belum melakukan registrasi')->withInput($request->all());
         }
         $data = [
             'title' => "Check Status Registrasi SPT $namaPemilik",

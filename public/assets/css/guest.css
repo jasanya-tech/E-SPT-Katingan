@@ -2,6 +2,10 @@
     flex-direction: column-reverse;
 }
 
+.dataTable-sorter {
+    width: max-content;
+}
+
 @media (min-width: 576px) {
     #form-SPT {
         flex-direction: column;
